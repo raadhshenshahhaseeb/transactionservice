@@ -4,12 +4,14 @@ import (
 	"context"
 	"crypto/ecdsa"
 	"fmt"
+	"log"
+
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/ethclient"
 	"github.com/ethereum/go-ethereum/rpc"
+
 	"github.com/hyperversalblocks/txservice/pkg/transaction"
-	"log"
 )
 
 type Chain struct {

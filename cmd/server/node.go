@@ -3,8 +3,9 @@ package server
 import (
 	"context"
 	"fmt"
-	"github.com/hyperversalblocks/txservice/pkg/transaction"
 	"time"
+
+	"github.com/hyperversalblocks/txservice/pkg/transaction"
 )
 
 func (s *Server) Init(ctx context.Context) error {
