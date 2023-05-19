@@ -1,7 +1,7 @@
 package server
 
 type Config struct {
-	Address   string `envconfig:"ADDRESS" default:"0.0.0.0:4000"`
+	Address   string `envconfig:"ADDRESS" default:"0.0.0.0:8000"`
 	JwtSecret string `envconfig:"JWT_SECRET" required:"true"`
 	Database  struct {
 		Host       string `envconfig:"DB_HOST" required:"true"`
