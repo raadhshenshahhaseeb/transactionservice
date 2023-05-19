@@ -1,8 +1,9 @@
 package cmd
 
 import (
-	"github.com/hyperversalblocks/txservice/cmd/server"
 	"log"
+
+	"github.com/hyperversalblocks/txservice/cmd/server"
 )
 
 func main() {

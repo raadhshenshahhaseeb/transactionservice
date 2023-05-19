@@ -4,11 +4,12 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"math/big"
+	"time"
+
 	"github.com/ethereum/go-ethereum"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
-	"math/big"
-	"time"
 )
 
 // Backend is the minimum of blockchain backend functions we need.
