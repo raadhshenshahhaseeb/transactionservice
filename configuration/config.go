@@ -1,6 +1,8 @@
 package configuration
 
 import (
+	"fmt"
+
 	"github.com/spf13/viper"
 )
 
@@ -9,12 +11,10 @@ type Config struct {
 		PrivateKey string `mapstructure:"PRIVATE_KEY"`
 		Endpoint   string `mapstructure:"ENDPOINT"`
 	} `mapstructure:"CHAIN"`
-	Contracts struct {
-		ExampleContract struct {
-			Address string      `mapstructure:"ADDRESS"`
-			ABI     interface{} `mapstructure:"ABI"`
-		} `mapstructure:"EXAMPLE_CONTRACT"`
-	} `mapstructure:"CONTRACTS"`
+	Logger struct {
+		Level int    `mapstructure:"LEVEL"`
+		Env   string `mapstructure:"ENV"`
+	} `mapstructure:"LOGGER"`
 }
 
 func Init() (*Config, error) {
@@ -28,8 +28,13 @@ func Init() (*Config, error) {
 	if err != nil {
 		return nil, err
 	}
+
 	config := Config{}
+
 	err = viper.Unmarshal(&config)
+	if err != nil {
+		return nil, fmt.Errorf("unable to bootstrap config")
+	}
 
 	return &config, nil
 }

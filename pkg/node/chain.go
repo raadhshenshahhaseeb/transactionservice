@@ -1,4 +1,4 @@
-package chain
+package node
 
 import (
 	"context"
@@ -7,7 +7,7 @@ import (
 	"github.com/ethereum/go-ethereum/rpc"
 )
 
-func Init(rpcEndpoint string, ctx context.Context) (*rpc.Client, error) {
+func Init(ctx context.Context, rpcEndpoint string) (*rpc.Client, error) {
 	rpcClient, err := rpc.DialContext(ctx, rpcEndpoint)
 	if err != nil {
 		return nil, fmt.Errorf("dial eth client: %w", err)

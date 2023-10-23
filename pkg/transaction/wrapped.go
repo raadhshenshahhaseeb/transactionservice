@@ -17,7 +17,7 @@ type WrappedBackend struct {
 	backend Backend
 }
 
-func NewBackend(backend Backend) Backend {
+func NewBackend(backend Backend) *WrappedBackend {
 	return &WrappedBackend{
 		backend: backend,
 	}

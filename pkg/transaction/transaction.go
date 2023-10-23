@@ -85,12 +85,10 @@ func (t *TxService) waitForPendingTx(txHash common.Hash) {
 				// e.g. t.logger.Error(err, "error while waiting for pending transaction", "tx", txHash)
 				return
 			} else {
-				// TODO: add logger
-				// e.g. t.logger.Warning("pending transaction cancelled", "tx", txHash)
+				t.logger.Warning("pending transaction cancelled", "tx", txHash)
 			}
 		} else {
-			// TODO: add logger
-			// e.g. logger.Debug("pending transaction confirmed", "tx", txHash)
+			t.logger.Debug("pending transaction confirmed", "tx", txHash)
 		}
 	}()
 }
@@ -297,7 +295,7 @@ func (t *TxService) CancelTransaction(ctx context.Context, originalTxHash common
 	return txHash, err
 }
 
-func NewTxService(rpcClient *rpc.Client, logger *logrus.Logger, backend WrappedBackend, signer signer.Signer, chainID *big.Int, address common.Address) (Service, error) {
+func NewTxService(logger *logrus.Logger, backend WrappedBackend, signer signer.Signer) (Service, error) {
 	ctx, cancel := context.WithCancel(context.Background())
 	tx := &TxService{
 		wg:      sync.WaitGroup{},
@@ -307,8 +305,6 @@ func NewTxService(rpcClient *rpc.Client, logger *logrus.Logger, backend WrappedB
 		logger:  logger,
 		backend: backend,
 		signer:  signer,
-		sender:  address,
-		chainID: chainID,
 	}
 	return tx, nil
 }
