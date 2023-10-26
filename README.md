@@ -1,6 +1,6 @@
 # Transaction Service
 
-This repository contains the implementation of a transaction service designed to handle Ethereum transactions. The service is structured to manage gas prices, gas limits, and nonce for transactions.
+This repository contains the implementation of a transaction service designed to handle Ethereum transactions. The service is structured to manage gas prices, gas limits, and nonce for transactions. This service can also allow interactions to and with the blockchain.
 
 ## Key Components
 
